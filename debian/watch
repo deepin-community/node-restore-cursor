@@ -1,0 +1,5 @@
+version=4
+opts=\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-restore-cursor-$1/ \
+ https://github.com/sindresorhus/restore-cursor/tags .*/archive/.*/v?([\d\.]+).tar.gz

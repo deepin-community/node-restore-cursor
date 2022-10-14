@@ -1,0 +1,18 @@
+Description: Replace the dependency on onetime with once.
+Forwarded: not-needed
+Author: Paolo Greppi <paolo.greppi@libpf.com>
+
+===================================================================
+--- a/index.js
++++ b/index.js
+@@ -1,8 +1,8 @@
+ 'use strict';
+-const onetime = require('onetime');
++const once = require('once');
+ const signalExit = require('signal-exit');
+ 
+-module.exports = onetime(() => {
++module.exports = once(() => {
+ 	signalExit(() => {
+ 		process.stderr.write('\u001B[?25h');
+ 	}, {alwaysLast: true});
