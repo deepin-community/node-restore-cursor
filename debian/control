@@ -5,10 +5,9 @@ Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.deb
 Uploaders: Paolo Greppi <paolo.greppi@libpf.com>
 Build-Depends: debhelper-compat (= 13)
  , dh-sequence-nodejs
- , node-exit-hook <!nocheck>
  , node-once <!nocheck>
- , node-signal-exit <!nocheck>
-Standards-Version: 4.6.0
+ , node-signal-exit (>= 4) <!nocheck>
+Standards-Version: 4.6.2
 Vcs-Browser: https://salsa.debian.org/js-team/node-restore-cursor
 Vcs-Git: https://salsa.debian.org/js-team/node-restore-cursor.git
 Homepage: https://github.com/sindresorhus/restore-cursor
@@ -18,9 +17,10 @@ Rules-Requires-Root: no
 Package: node-restore-cursor
 Architecture: all
 Depends: ${misc:Depends}
- , node-exit-hook
  , node-once
- , node-signal-exit
+ , node-signal-exit (>= 4)
+Breaks: node-cli-cursor (<< 4.0.0~)
+Multi-Arch: foreign
 Description: Gracefully restore the CLI cursor on exit
  Node.js module to make the cursor reappear if the process crashes
  even if it had been hidden interactively.
